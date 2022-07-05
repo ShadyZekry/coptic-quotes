@@ -8,7 +8,9 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style type="text/css">
@@ -20,7 +22,7 @@
             padding: 20px;
             background: #f4f7f8;
             border-radius: 8px;
-            font-family: Georgia, "Times New Roman", Times, serif;
+            font-family: "Tajawal", "Times New Roman", Times, serif;
         }
 
         .form-style-5 fieldset {
@@ -47,7 +49,7 @@
         .form-style-5 input[type="url"],
         .form-style-5 textarea,
         .form-style-5 select {
-            font-family: Georgia, "Times New Roman", Times, serif;
+            font-family: "Tajawal", "Times New Roman", Times, serif;
             background: rgba(255, 255, 255, .1);
             border: none;
             border-radius: 4px;
@@ -91,7 +93,7 @@
             width: 30px;
             display: inline-block;
             font-size: 0.8em;
-            margin-right: 4px;
+            margin-left: 4px;
             line-height: 30px;
             text-align: center;
             text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -123,15 +125,15 @@
 
 </head>
 
-<body>
+<body dir="rtl">
     <div class="form-style-5">
         <form>
             <fieldset>
-                <legend><span class="number">1</span> Candidate Info</legend>
+                <legend><span class="number">1</span>عن القائل</legend>
                 <input type="text" name="field1" placeholder="Your Name *">
                 <input type="email" name="field2" placeholder="Your Email *">
                 <textarea name="field3" placeholder="About yourself"></textarea>
-                <label for="author">Author:</label>
+                <label for="author">القائل:</label>
                 <select id="author" name="field4">
                     @foreach ($authors as $author)
                         <option value="{{ $author->name }}">{{ $author->name }}</option>
@@ -144,7 +146,7 @@
                 </select>
             </fieldset>
             <fieldset>
-                <legend><span class="number">2</span> Additional Info</legend>
+                <legend><span class="number">2</span>المقولة</legend>
                 <textarea name="field3" placeholder="About Your School"></textarea>
             </fieldset>
             <input type="submit" value="Apply" />
