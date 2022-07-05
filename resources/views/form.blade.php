@@ -131,25 +131,16 @@
                 <input type="text" name="field1" placeholder="Your Name *">
                 <input type="email" name="field2" placeholder="Your Email *">
                 <textarea name="field3" placeholder="About yourself"></textarea>
-                <label for="job">Interests:</label>
-                <select id="job" name="field4">
-                    <optgroup label="Indoors">
-                        <option value="fishkeeping">Fishkeeping</option>
-                        <option value="reading">Reading</option>
-                        <option value="boxing">Boxing</option>
-                        <option value="debate">Debate</option>
-                        <option value="gaming">Gaming</option>
-                        <option value="snooker">Snooker</option>
-                        <option value="other_indoor">Other</option>
-                    </optgroup>
-                    <optgroup label="Outdoors">
-                        <option value="football">Football</option>
-                        <option value="swimming">Swimming</option>
-                        <option value="fishing">Fishing</option>
-                        <option value="climbing">Climbing</option>
-                        <option value="cycling">Cycling</option>
-                        <option value="other_outdoor">Other</option>
-                    </optgroup>
+                <label for="author">Author:</label>
+                <select id="author" name="field4">
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->name }}">{{ $author->name }}</option>
+                    @endforeach
+                </select>
+                <select id="tag" name="field5">
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->name }}">{{ $tag->name }}</option>
+                    @endforeach
                 </select>
             </fieldset>
             <fieldset>
