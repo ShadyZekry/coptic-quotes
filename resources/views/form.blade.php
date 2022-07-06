@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('css/multiple_select.css') }}" />
+    {{-- <link rel="script" href="{{ asset('css/multiple_select.js') }}" /> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+
     <!-- Styles -->
     <style type="text/css">
         .form-style-5 {
@@ -123,6 +128,23 @@
         }
     </style>
 
+    {{-- <script>
+        $(function() {
+            var mySelectCheckbox = new checkbox_select({
+                selector: "#make_checkbox_select",
+                selected_translation: "selectat",
+                all_translation: "Toate marcile",
+                not_found: "Nici unul gasit",
+
+                // Event during initialization
+                onApply: function(e) {
+                    alert("Custom Event: " + e.selected);
+                }
+            });
+
+        });
+    </script> --}}
+
 </head>
 
 <body dir="rtl">
@@ -130,24 +152,30 @@
         <form>
             <fieldset>
                 <legend><span class="number">1</span>عن القائل</legend>
-                <input type="text" name="field1" placeholder="Your Name *">
-                <input type="email" name="field2" placeholder="Your Email *">
-                <textarea name="field3" placeholder="About yourself"></textarea>
+                {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
+                {{-- <textarea name="field3" placeholder="About yourself"></textarea> --}}
                 <label for="author">القائل:</label>
                 <select id="author" name="field4">
                     @foreach ($authors as $author)
                         <option value="{{ $author->name }}">{{ $author->name }}</option>
                     @endforeach
                 </select>
-                <select id="tag" name="field5">
-                    @foreach ($tags as $tag)
-                        <option value="{{ $tag->name }}">{{ $tag->name }}</option>
-                    @endforeach
-                </select>
+
             </fieldset>
             <fieldset>
-                <legend><span class="number">2</span>المقولة</legend>
+                <legend><span class="number">2</span>عن المقولة</legend>
+                <label for="make">المقولة:</label>
                 <textarea name="field3" placeholder="About Your School"></textarea>
+
+
+                {{-- <label for="make">مواضيع:</label>
+                <form id="make_checkbox_select">
+                    <select name="make">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->name }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </form> --}}
             </fieldset>
             <input type="submit" value="Apply" />
         </form>

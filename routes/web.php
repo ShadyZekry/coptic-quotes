@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\FormController;
-use App\Models\Quote;
 use Illuminate\Support\Facades\Route;
 
 /*
