@@ -12,9 +12,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
 
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> --}}
+
     <link rel="stylesheet" href="{{ asset('css/multiple_select.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/tags.css') }}" />
+    <script src="{{ asset('js/tags.js') }}"></script>
     {{-- <link rel="script" href="{{ asset('css/multiple_select.js') }}" /> --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 
     <!-- Styles -->
@@ -128,23 +131,6 @@
         }
     </style>
 
-    {{-- <script>
-        $(function() {
-            var mySelectCheckbox = new checkbox_select({
-                selector: "#make_checkbox_select",
-                selected_translation: "selectat",
-                all_translation: "Toate marcile",
-                not_found: "Nici unul gasit",
-
-                // Event during initialization
-                onApply: function(e) {
-                    alert("Custom Event: " + e.selected);
-                }
-            });
-
-        });
-    </script> --}}
-
 </head>
 
 <body dir="rtl">
@@ -165,7 +151,8 @@
             <fieldset>
                 <legend><span class="number">2</span>عن المقولة</legend>
                 <label for="make">المقولة:</label>
-                <textarea name="field3" placeholder="About Your School"></textarea>
+                {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
+                <textarea name="field3" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
 
 
                 {{-- <label for="make">مواضيع:</label>
@@ -177,8 +164,15 @@
                     </select>
                 </form> --}}
             </fieldset>
-            <input type="submit" value="Apply" />
+            {{-- <input type="submit" value="Apply" /> --}}
         </form>
+
+        <div id="myDIV" class="header">
+            <input type="text" id="myInput" placeholder="Title...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="myUL"></ul>
     </div>
 
 </body>
