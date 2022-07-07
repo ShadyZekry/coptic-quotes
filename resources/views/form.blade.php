@@ -186,6 +186,12 @@
 </head>
 
 <body dir="rtl">
+
+    @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible text-center" style="font-family: Tajawal">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <div class="form-style-5">
         <form method="POST" action="/form" onsubmit="onSubmit()">
             @csrf

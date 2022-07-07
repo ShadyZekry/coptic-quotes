@@ -60,5 +60,7 @@ class FormController extends Controller
 
         $quote->save();
         $author->save();
+
+        return redirect('/form')->with('message', 'تم إضافة المقولة بنجاح و سيتم مراجعها');
     }
 }
