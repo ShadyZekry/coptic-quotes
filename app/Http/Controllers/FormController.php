@@ -15,4 +15,8 @@ class FormController extends Controller
             'tags' => Tag::get(),
         ]);
     }
+
+    public function postForm()
+    {
+    }
 }
