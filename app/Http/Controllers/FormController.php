@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -30,5 +31,34 @@ class FormController extends Controller
                 'selected_tags.required' => 'يجب اختيار موضوع واحد على الأقل'
             ]
         );
+
+        $authorName = request('author');
+        if (request('new_author') === 'true')
+            $authorName = request('author_text');
+
+        $author = Author::firstOrCreate(
+            ['name' => $authorName],
+            ['name' => $authorName]
+        );
+
+        $tags = explode(',', request('selected_tags'));
+        $tagModels = new Collection();
+        foreach ($tags as $tag) {
+            $tagModel = Tag::firstOrCreate(
+                ['name' => $tag],
+                ['name' => $tag]
+            );
+            $tagModels->add($tagModel);
+        }
+
+        $quote = $author->quotes()->create(
+            ['quote' => request('quote')]
+        );
+
+        $quote->tags()->sync($tagModels);
+        $quote->author()->associate($author);
+
+        $quote->save();
+        $author->save();
     }
 }
