@@ -187,10 +187,7 @@
         <form onsubmit="onSubmit()">
             <fieldset>
                 <div style="display: flex; flex-direction: column;">
-                    <legend><span class="number">1</span>عن القائل</legend>
-                    {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
-                    {{-- <textarea name="field3" placeholder="About yourself"></textarea> --}}
-                    <label for="author">القائل:</label>
+                    <legend><span class="number">1</span>القائل</legend>
                     <select id="author" name="author">
                         @foreach ($authors as $author)
                             <option value="{{ $author->name }}">{{ $author->name }}</option>
@@ -213,12 +210,11 @@
             </fieldset>
 
             <fieldset>
-                <legend><span class="number">2</span>عن المقولة</legend>
-                <label for="make">المقولة:</label>
+                <legend><span class="number">2</span>المقولة</legend>
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
                 <textarea name="quote" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
 
-                <label for="searchInput">مواضيع:</label>
+                <legend><span class="number">3</span>المواضيع</legend>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
                 <input type="hidden" id="selectedTags" name="selected_tags" value="" />
 
