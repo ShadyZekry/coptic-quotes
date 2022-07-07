@@ -212,15 +212,6 @@
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
                 <textarea name="field3" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
 
-
-                {{-- <form id="make_checkbox_select">
-                    <select name="make">
-                        @foreach ($tags as $tag)
-                            <option value="{{ $tag->name }}">{{ $tag->name }}</option>
-                        @endforeach
-                    </select>
-                </form> --}}
-
                 <label for="searchInput">مواضيع:</label>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
 
@@ -230,7 +221,8 @@
                 </div>
                 <ul id="tagsSearchList">
                     @foreach ($tags as $tag)
-                        <li onclick="newElement('{{ $tag->name }}')"><a href="#">{{ $tag->name }}</a></li>
+                        <li style="display: none" onclick="newElement('{{ $tag->name }}')"><a
+                                href="#">{{ $tag->name }}</a></li>
                     @endforeach
                 </ul>
             </fieldset>

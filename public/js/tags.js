@@ -34,6 +34,7 @@ function newElement(tagName) {
         document.getElementById("tagsList").appendChild(li);
     }
     document.getElementById("searchInput").value = "";
+    search();
 
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
