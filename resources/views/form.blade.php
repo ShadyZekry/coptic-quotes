@@ -190,7 +190,7 @@
                 {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
                 {{-- <textarea name="field3" placeholder="About yourself"></textarea> --}}
                 <label for="author">القائل:</label>
-                <select id="author" name="field4">
+                <select id="author" name="author">
                     @foreach ($authors as $author)
                         <option value="{{ $author->name }}">{{ $author->name }}</option>
                     @endforeach
@@ -199,7 +199,7 @@
                     <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
                     <div class="item" id="checkbox">
                         <div class="toggle-pill-color">
-                            <input type="checkbox" id="pill3" name="check">
+                            <input type="checkbox" id="pill3" name="new_author">
                             <label for="pill3"></label>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                 <legend><span class="number">2</span>عن المقولة</legend>
                 <label for="make">المقولة:</label>
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
-                <textarea name="field3" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
+                <textarea name="quote" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
 
                 <label for="searchInput">مواضيع:</label>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
@@ -226,11 +226,9 @@
                     @endforeach
                 </ul>
             </fieldset>
+            <input type="submit" value="Apply" />
         </form>
-
-
     </div>
-
 </body>
 
 </html>
