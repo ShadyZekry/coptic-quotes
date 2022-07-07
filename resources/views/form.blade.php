@@ -14,10 +14,11 @@
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> --}}
 
-    <link rel="stylesheet" href="{{ asset('css/multiple_select.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/tags.css') }}" />
     <script src="{{ asset('js/tags.js') }}"></script>
-    {{-- <link rel="script" href="{{ asset('css/multiple_select.js') }}" /> --}}
+
+    <link rel="stylesheet" href="{{ asset('css/tags_search.css') }}" />
+    <script src="{{ asset('js/tags_search.js') }}"></script>
 
 
     <!-- Styles -->
@@ -212,24 +213,30 @@
                 <textarea name="field3" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
 
 
-                {{-- <label for="make">مواضيع:</label>
-                <form id="make_checkbox_select">
+                {{-- <form id="make_checkbox_select">
                     <select name="make">
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->name }}">{{ $tag->name }}</option>
                         @endforeach
                     </select>
                 </form> --}}
+
+                <label for="searchInput">مواضيع:</label>
+                <ul id="tagsList" style="padding-bottom: 10px"></ul>
+
+                <div style="display: flex; flex-direction: row;">
+                    <input type="text" id="searchInput" onkeyup="search()" placeholder="ابحت عن اسم موضوع...">
+                    <span onclick="newElement()" class="addBtn">اضافة</span>
+                </div>
+                <ul id="tagsSearchList">
+                    @foreach ($tags as $tag)
+                        <li><a href="#">{{ $tag->name }}</a></li>
+                    @endforeach
+                </ul>
             </fieldset>
-            {{-- <input type="submit" value="Apply" /> --}}
         </form>
 
-        <div id="myDIV" class="header">
-            <input type="text" id="myInput" placeholder="Title...">
-            <span onclick="newElement()" class="addBtn">Add</span>
-        </div>
 
-        <ul id="myUL"></ul>
     </div>
 
 </body>
