@@ -186,26 +186,32 @@
     <div class="form-style-5">
         <form onsubmit="onSubmit()">
             <fieldset>
-                <legend><span class="number">1</span>عن القائل</legend>
-                {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
-                {{-- <textarea name="field3" placeholder="About yourself"></textarea> --}}
-                <label for="author">القائل:</label>
-                <select id="author" name="author">
-                    @foreach ($authors as $author)
-                        <option value="{{ $author->name }}">{{ $author->name }}</option>
-                    @endforeach
-                </select>
-                <div style="display: flex;flex-direction: row;align-items: center;">
-                    <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
-                    <div class="item" id="checkbox">
-                        <div class="toggle-pill-color">
-                            <input type="checkbox" id="pill3" name="new_author">
-                            <label for="pill3"></label>
+                <div style="display: flex; flex-direction: column;">
+                    <legend><span class="number">1</span>عن القائل</legend>
+                    {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
+                    {{-- <textarea name="field3" placeholder="About yourself"></textarea> --}}
+                    <label for="author">القائل:</label>
+                    <select id="author" name="author">
+                        @foreach ($authors as $author)
+                            <option value="{{ $author->name }}">{{ $author->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <input type="text" id="authorText" name="author" placeholder="اكتبلنا الاسم هنا..."
+                        style="display: none">
+
+                    <div style="display: flex;flex-direction: row;align-items: center;">
+                        <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
+                        <div class="item" id="checkbox">
+                            <div class="toggle-pill-color" name="new_author">
+                                <input type="checkbox" id="pill3" onchange="onSwitch()">
+                                <label for="pill3"></label>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </fieldset>
+
             <fieldset>
                 <legend><span class="number">2</span>عن المقولة</legend>
                 <label for="make">المقولة:</label>
@@ -237,7 +243,7 @@
 <script>
     function onSubmit(tagName) {
         // on user clicks submit button, this code will be executed first
-        // we'll take all values of the Two dropdown and put them in 1 string
+        // we'll take all values of the selected tags and put them in 1 string
         var all_values = '';
         const listItemTextContent = Array.from(document.querySelectorAll("#tagsList > li"));
 
@@ -245,5 +251,18 @@
             listItemTextContent.map(itemText => itemText.firstChild.data);
 
         document.querySelector('#selectedTags').value = listItemTextArray.join(',');
+    };
+
+    function onSwitch() {
+        var isChecked = document.getElementById("pill3").checked;
+
+        if (isChecked) {
+            document.getElementById("authorText").style.display = "block";
+            document.getElementById("author").style.display = "none";
+        } else {
+            document.getElementById("authorText").style.display = "none";
+            document.getElementById("authorText").value = "";
+            document.getElementById("author").style.display = "block";
+        }
     };
 </script>
