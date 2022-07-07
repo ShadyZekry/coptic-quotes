@@ -184,7 +184,8 @@
 
 <body dir="rtl">
     <div class="form-style-5">
-        <form onsubmit="onSubmit()">
+        <form method="POST" action="/form" onsubmit="onSubmit()">
+            @csrf
             <fieldset>
                 <div style="display: flex; flex-direction: column;">
                     <legend><span class="number">1</span>القائل</legend>
@@ -194,15 +195,16 @@
                         @endforeach
                     </select>
 
-                    <input type="text" id="authorText" name="author" placeholder="اكتبلنا الاسم هنا..."
+                    <input type="text" id="authorText" name="authorText" placeholder="اكتبلنا الاسم هنا..."
                         style="display: none">
 
                     <div style="display: flex;flex-direction: row;align-items: center;">
                         <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
                         <div class="item" id="checkbox">
-                            <div class="toggle-pill-color" name="new_author">
+                            <div class="toggle-pill-color">
                                 <input type="checkbox" id="pill3" onchange="onSwitch()">
                                 <label for="pill3"></label>
+                                <input type="hidden" id="new_author" name="new_author" value="" />
                             </div>
                         </div>
                     </div>
@@ -247,6 +249,7 @@
             listItemTextContent.map(itemText => itemText.firstChild.data);
 
         document.querySelector('#selectedTags').value = listItemTextArray.join(',');
+        document.querySelector('#new_author').value = document.getElementById("pill3").checked;
     };
 
     function onSwitch() {
