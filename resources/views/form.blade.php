@@ -204,7 +204,6 @@
                         <span style="color: red;"> {{ $message }} </span>
                     @enderror
 
-
                     <div style="display: flex;flex-direction: row;align-items: center;padding-top: 10px;">
                         <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
                         <div class="item" id="checkbox">
@@ -236,10 +235,14 @@
                     <input type="text" id="searchInput" onkeyup="search()" placeholder="ابحت عن اسم موضوع...">
                     <span onclick="newElement()" class="addBtn">اضافة</span>
                 </div>
+                @error('selected_tags')
+                    <span style="color: red;"> {{ $message }} </span>
+                @enderror
                 <ul id="tagsSearchList">
                     @foreach ($tags as $tag)
-                        <li style="display: none" onclick="newElement('{{ $tag->name }}')"><a
-                                href="#">{{ $tag->name }}</a></li>
+                        <li style="display: none" onclick="newElement('{{ $tag->name }}')">
+                            <a href="#">{{ $tag->name }}</a>
+                        </li>
                     @endforeach
                 </ul>
             </fieldset>
