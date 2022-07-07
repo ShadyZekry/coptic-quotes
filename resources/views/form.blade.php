@@ -230,7 +230,7 @@
                 </div>
                 <ul id="tagsSearchList">
                     @foreach ($tags as $tag)
-                        <li><a href="#">{{ $tag->name }}</a></li>
+                        <li onclick="newElement('{{ $tag->name }}')"><a href="#">{{ $tag->name }}</a></li>
                     @endforeach
                 </ul>
             </fieldset>

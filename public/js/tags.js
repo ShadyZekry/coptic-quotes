@@ -20,13 +20,16 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Create a new list item when clicking on the "Add" button
-function newElement() {
+function newElement(tagName) {
     var li = document.createElement("li");
-    var inputValue = document.getElementById("searchInput").value;
+    var inputValue =
+        tagName == null
+            ? document.getElementById("searchInput").value
+            : tagName;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === "") {
-        alert("You must write something!");
+        alert("اختر الموضوع اولا");
     } else {
         document.getElementById("tagsList").appendChild(li);
     }
