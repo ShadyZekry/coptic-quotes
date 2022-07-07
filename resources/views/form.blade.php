@@ -246,7 +246,7 @@
                     @endforeach
                 </ul>
             </fieldset>
-            <input type="submit" value="Apply" />
+            <input type="submit" value="تأكيد" />
         </form>
     </div>
 </body>
