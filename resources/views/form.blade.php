@@ -184,7 +184,7 @@
 
 <body dir="rtl">
     <div class="form-style-5">
-        <form>
+        <form onsubmit="onSubmit()">
             <fieldset>
                 <legend><span class="number">1</span>عن القائل</legend>
                 {{-- <input type="email" name="field2" placeholder="Your Email *"> --}}
@@ -214,6 +214,7 @@
 
                 <label for="searchInput">مواضيع:</label>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
+                <input type="hidden" id="selectedTags" name="selected_tags" value="" />
 
                 <div style="display: flex; flex-direction: row;">
                     <input type="text" id="searchInput" onkeyup="search()" placeholder="ابحت عن اسم موضوع...">
@@ -232,3 +233,17 @@
 </body>
 
 </html>
+
+<script>
+    function onSubmit(tagName) {
+        // on user clicks submit button, this code will be executed first
+        // we'll take all values of the Two dropdown and put them in 1 string
+        var all_values = '';
+        const listItemTextContent = Array.from(document.querySelectorAll("#tagsList > li"));
+
+        const listItemTextArray =
+            listItemTextContent.map(itemText => itemText.firstChild.data);
+
+        document.querySelector('#selectedTags').value = listItemTextArray.join(',');
+    };
+</script>
