@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tag_quote', function (Blueprint $table) {
+        Schema::create('quote_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Tag::class)->constrained();
             $table->foreignIdFor(Quote::class)->constrained();
