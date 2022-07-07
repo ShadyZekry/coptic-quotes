@@ -10,4 +10,9 @@ class Tag extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    function quotes()
+    {
+        return $this->belongsToMany(Quote::class);
+    }
 }

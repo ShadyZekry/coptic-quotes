@@ -10,4 +10,9 @@ class Author extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
 }
