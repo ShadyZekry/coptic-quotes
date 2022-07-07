@@ -186,14 +186,13 @@
 </head>
 
 <body dir="rtl">
-
     @if (session()->has('message'))
         <div class="alert alert-success alert-dismissible text-center" style="font-family: Tajawal">
             {{ session()->get('message') }}
         </div>
     @endif
     <div class="form-style-5">
-        <form method="POST" action="/form" onsubmit="onSubmit()">
+        <form method="POST" action="/coptic-quotes-form" onsubmit="onSubmit()">
             @csrf
             <fieldset>
                 <div style="display: flex; flex-direction: column;">

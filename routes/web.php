@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form', [FormController::class, 'getForm']);
-Route::post('/form', [FormController::class, 'postForm']);
+Route::get('/coptic-quotes-form', [FormController::class, 'getForm']);
+Route::post('/coptic-quotes-form', [FormController::class, 'postForm']);
