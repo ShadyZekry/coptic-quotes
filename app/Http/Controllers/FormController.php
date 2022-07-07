@@ -18,5 +18,15 @@ class FormController extends Controller
 
     public function postForm()
     {
+        $this->validate(
+            request(),
+            [
+                'quote' => 'required',
+                'author_text' => 'required_if:new_author,==,true'
+            ],
+            [
+                'author_text.required_if' => 'يجب اختيار اسم القائل او ادخال اسم جديد'
+            ]
+        );
     }
 }

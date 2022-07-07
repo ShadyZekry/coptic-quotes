@@ -11,8 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
-
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/tags.css') }}" />
     <script src="{{ asset('js/tags.js') }}"></script>
@@ -74,7 +74,6 @@
             color: #8a97a0;
             -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-            margin-bottom: 30px;
         }
 
         .form-style-5 input[type="text"]:focus,
@@ -153,6 +152,10 @@
             transition: background 0.1s ease-in-out;
         }
 
+        fieldset {
+            margin-bottom: 30px;
+        }
+
         .toggle-pill-color input[type="checkbox"]+label:before {
             content: "";
             display: block;
@@ -195,10 +198,14 @@
                         @endforeach
                     </select>
 
-                    <input type="text" id="authorText" name="authorText" placeholder="اكتبلنا الاسم هنا..."
+                    <input type="text" id="author_text" name="author_text" placeholder="اكتبلنا الاسم هنا..."
                         style="display: none">
+                    @error('author_text')
+                        <span style="color: red;"> {{ $message }} </span>
+                    @enderror
 
-                    <div style="display: flex;flex-direction: row;align-items: center;">
+
+                    <div style="display: flex;flex-direction: row;align-items: center;padding-top: 10px;">
                         <label for="checkbox" style="margin-left: 10px;">مش لاقي الاسم ؟</label>
                         <div class="item" id="checkbox">
                             <div class="toggle-pill-color">
@@ -215,7 +222,12 @@
                 <legend><span class="number">2</span>المقولة</legend>
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
                 <textarea name="quote" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
+                @error('quote')
+                    <span style="color: red;"> {{ $message }} </span>
+                @enderror
+            </fieldset>
 
+            <fieldset>
                 <legend><span class="number">3</span>المواضيع</legend>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
                 <input type="hidden" id="selectedTags" name="selected_tags" value="" />
@@ -256,11 +268,11 @@
         var isChecked = document.getElementById("pill3").checked;
 
         if (isChecked) {
-            document.getElementById("authorText").style.display = "block";
+            document.getElementById("author_text").style.display = "block";
             document.getElementById("author").style.display = "none";
         } else {
-            document.getElementById("authorText").style.display = "none";
-            document.getElementById("authorText").value = "";
+            document.getElementById("author_text").style.display = "none";
+            document.getElementById("author_text").value = "";
             document.getElementById("author").style.display = "block";
         }
     };
