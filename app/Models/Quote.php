@@ -9,7 +9,7 @@ class Quote extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['quote'];
+    protected $fillable = ['quote', 'author_id', 'source_id'];
 
     function author()
     {
@@ -19,5 +19,10 @@ class Quote extends Model
     function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    function source()
+    {
+        return $this->belongsTo(Source::class);
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
+use App\Models\Quote;
 use App\Models\Source;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
@@ -55,12 +55,16 @@ class FormController extends Controller
             $tagModels->add($tagModel);
         }
 
-        $quote = $author->quotes()->create(
-            ['quote' => request('quote')]
+        $quote = Quote::create(
+            [
+                'quote' => request('quote'),
+                'author_id' => $author->id,
+                'source_id' => request('source'),
+            ]
         );
 
-        $quote->tags()->sync($tagModels);
         $quote->author()->associate($author);
+        $quote->tags()->sync($tagModels);
 
         $quote->save();
         $author->save();

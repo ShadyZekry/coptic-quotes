@@ -236,7 +236,7 @@
 
                 <select name="source">
                     @foreach ($sources as $source)
-                        <option value="{{ $source->name }}">{{ $source->name }}</option>
+                        <option value={{ $source->id }}>{{ $source->name }}</option>
                     @endforeach
                 </select>
 
