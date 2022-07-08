@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
+use App\Models\Source;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class FormController extends Controller
         return view('form', [
             'authors' => Author::get(),
             'tags' => Tag::get(),
+            'sources' => Source::get(),
         ]);
     }
 
@@ -24,11 +26,13 @@ class FormController extends Controller
             [
                 'quote' => 'required',
                 'author_text' => 'required_if:new_author,==,true',
-                'selected_tags' => 'required'
+                'selected_tags' => 'required',
+                'source' => 'required',
             ],
             [
                 'author_text.required_if' => 'يجب اختيار اسم القائل او ادخال اسم جديد',
-                'selected_tags.required' => 'يجب اختيار موضوع واحد على الأقل'
+                'selected_tags.required' => 'يجب اختيار موضوع واحد على الأقل',
+                'source.required' => 'يجب ادخال مصدر للمقولة',
             ]
         );
 

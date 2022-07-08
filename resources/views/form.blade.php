@@ -232,7 +232,21 @@
             </fieldset>
 
             <fieldset>
-                <legend><span class="number">3</span>المواضيع</legend>
+                <legend><span class="number">3</span>المصادر</legend>
+
+                <select name="source">
+                    @foreach ($sources as $source)
+                        <option value="{{ $source->name }}">{{ $source->name }}</option>
+                    @endforeach
+                </select>
+
+                @error('source')
+                    <span style="color: red;"> {{ $message }} </span>
+                @enderror
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number">4</span>المواضيع</legend>
                 <ul id="tagsList" style="padding-bottom: 10px"></ul>
                 <input type="hidden" id="selectedTags" name="selected_tags" value="" />
 
