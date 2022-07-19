@@ -225,7 +225,8 @@
             <fieldset>
                 <legend><span class="number">2</span>المقولة</legend>
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
-                <textarea name="quote" placeholder="إبن الطاعة تحل عليه البركة"></textarea>
+                {{-- إبن الطاعة تحل عليه البركة --}}
+                <textarea name="quote" placeholder="كثيرًا ما تكلمت وندمت، أما عن السكوت فلم أندم قط."></textarea>
                 @error('quote')
                     <span style="color: red;"> {{ $message }} </span>
                 @enderror
