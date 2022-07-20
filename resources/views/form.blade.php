@@ -223,7 +223,7 @@
             </fieldset>
 
             <fieldset>
-                <legend><span class="number">2</span>المقولة</legend>
+                <legend><span class="number">2</span>القول</legend>
                 {{-- مــــن يـهرب مـــن الضيـــــقة يهـــــرب مـــن الله --}}
                 {{-- إبن الطاعة تحل عليه البركة --}}
                 <textarea name="quote" placeholder="كثيرًا ما تكلمت وندمت، أما عن السكوت فلم أندم قط."></textarea>

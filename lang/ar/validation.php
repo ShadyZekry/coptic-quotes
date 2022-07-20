@@ -166,7 +166,7 @@ return [
     */
 
     'attributes' => [
-        'quote' => 'المقولة'
+        'quote' => 'القول'
     ],
 
 ];
