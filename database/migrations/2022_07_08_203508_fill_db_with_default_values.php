@@ -17,7 +17,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Author::create(['name' => 'القديس الأنبا أنطونيوس']);
+        Author::create(['name' => 'الأنبا أنطونيوس']);
         Tag::create(['name' => 'المحبة']);
         Source::create(['name' => 'كتاب بستان الرهبان']);
     }
@@ -29,7 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Author::where('name', 'القديس الأنبا أنطونيوس')->delete();
+        Author::where('name', 'الأنبا أنطونيوس')->delete();
         Tag::where('name', 'المحبة')->delete();
         Source::where('name', 'كتاب بستان الرهبان')->delete();
     }
