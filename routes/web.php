@@ -14,9 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/coptic-quotes-form', [FormController::class, 'getForm']);
 Route::post('/coptic-quotes-form', [FormController::class, 'postForm']);
