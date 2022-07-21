@@ -1,12 +1,12 @@
 <?php
 
 use App\Models\Author;
-use App\Models\Quote;
 use App\Models\Source;
 use App\Models\Tag;
+use Database\Seeders\DefaultDBValues;
+use Database\Seeders\FillWithDefaultValues;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 
 return new class extends Migration
 {
@@ -17,9 +17,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Author::create(['name' => 'الأنبا أنطونيوس']);
-        Tag::create(['name' => 'المحبة']);
-        Source::create(['name' => 'كتاب بستان الرهبان']);
+        Artisan::call('db:seed', ['--class' => FillWithDefaultValues::class]);
     }
 
     /**
@@ -29,8 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Author::where('name', 'الأنبا أنطونيوس')->delete();
-        Tag::where('name', 'المحبة')->delete();
-        Source::where('name', 'كتاب بستان الرهبان')->delete();
+        Author::truncate();
+        Tag::truncate();
+        Source::truncate();
     }
 };
