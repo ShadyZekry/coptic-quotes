@@ -259,7 +259,7 @@
                 @enderror
                 <ul id="tagsSearchList">
                     @foreach ($tags as $tag)
-                        <li style="display: none" onclick="newElement('{{ $tag->name }}')">
+                        <li onclick="newElement('{{ $tag->name }}')">
                             <a href="#">{{ $tag->name }}</a>
                         </li>
                     @endforeach
