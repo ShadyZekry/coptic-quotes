@@ -10,4 +10,9 @@ class Source extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
 }
